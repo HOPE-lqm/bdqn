@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>BankOnline</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+	<filter>
+		<filter-name>EncodingFilter</filter-name>
+		<filter-class>com.bank.filter.EncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>type</param-name>
+			<param-value>text/html; charset=UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>EncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- 登录控制器 -->
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>com.bank.servlet.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+
+	<!-- 转账业务前的验证操作控制器 -->
+	<servlet>
+		<servlet-name>CheckTransactionRecordServlet</servlet-name>
+		<servlet-class>com.bank.servlet.CheckTransactionRecordServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CheckTransactionRecordServlet</servlet-name>
+		<url-pattern>/checktr</url-pattern>
+	</servlet-mapping>
+
+	<!-- 转账操作控制器 -->
+	<servlet>
+		<servlet-name>TransactionRecordServlet</servlet-name>
+		<servlet-class>com.bank.servlet.TransactionRecordServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TransactionRecordServlet</servlet-name>
+		<url-pattern>/transaction</url-pattern>
+	</servlet-mapping>
+</web-app>
