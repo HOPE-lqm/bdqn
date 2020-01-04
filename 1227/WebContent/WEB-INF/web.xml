@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>FinancialManagement</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- 配置字符编码过滤器 -->
+  	<filter>
+		<filter-name>EncodingFilter</filter-name>
+		<filter-class>com.bdqn.filter.EncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>type</param-name>
+			<param-value>text/html; charset=UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>EncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- 查询信息 -->
+	<servlet>
+		<servlet-name>mainservlet</servlet-name>
+		<servlet-class>com.bdqn.servlet.mainservlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>mainservlet</servlet-name>
+		<url-pattern>/main</url-pattern>
+	</servlet-mapping>
+		
+	<!-- 删除信息 -->
+	<servlet>
+		<servlet-name>dateleservlet</servlet-name>
+		<servlet-class>com.bdqn.servlet.dateleservlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>dateleservlet</servlet-name>
+		<url-pattern>/datele</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 新增信息 -->
+	<servlet>
+		<servlet-name>intoservlet</servlet-name>
+		<servlet-class>com.bdqn.servlet.intoservlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>intoservlet</servlet-name>
+		<url-pattern>/into</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 修改信息查询 -->
+	<servlet>
+		<servlet-name>opuiservlet</servlet-name>
+		<servlet-class>com.bdqn.servlet.opuiservlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>opuiservlet</servlet-name>
+		<url-pattern>/opui</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 修改信息 -->
+	<servlet>
+		<servlet-name>xgservlet</servlet-name>
+		<servlet-class>com.bdqn.servlet.xgservlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>xgservlet</servlet-name>
+		<url-pattern>/xg</url-pattern>
+	</servlet-mapping>
+	
+	
+</web-app>
